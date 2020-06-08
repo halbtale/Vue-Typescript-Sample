@@ -1,6 +1,7 @@
 <template>
     <div>
-        <p>Counter: {{counter}}</p>
+        <p>Counter: {{ $global.count }}</p>
+        <button @click="add">Add</button>
     </div>
 </template>
 
@@ -9,7 +10,10 @@ import Vue from "vue";
 import Component from "vue-class-component";
 
 @Component
-export default class App extends Vue {
-    counter = 0;
+export default class Counter extends Vue {
+    add() {
+        console.log("Incrementing counter...");
+        this.$global.incr();
+    }
 }
 </script>
